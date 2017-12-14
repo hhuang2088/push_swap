@@ -1,4 +1,16 @@
-#include "checker.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_stack.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/13 13:24:48 by hehuang           #+#    #+#             */
+/*   Updated: 2017/12/13 13:24:58 by hehuang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "ps_stack.h"
 
 void 	lst_swap(t_list *list)
 {
@@ -9,6 +21,7 @@ void 	lst_swap(t_list *list)
 	{
 		tmp = list->node->content;
 		list->node->content = list->node->next->content;
+		list->node->content_size = list->node->next->content_size;
 		list->node->next->content = tmp;
 		list->head = list->node;
 	}
