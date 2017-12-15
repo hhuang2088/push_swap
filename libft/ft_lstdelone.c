@@ -6,7 +6,7 @@
 /*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 23:09:24 by hehuang           #+#    #+#             */
-/*   Updated: 2016/10/04 23:25:04 by hehuang          ###   ########.fr       */
+/*   Updated: 2017/12/14 17:14:02 by hehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_nodedelone(t_node **anode, void (*del)(void *, size_t))
 	*anode = NULL;
 }
 
-void 	ft_lstdelone(t_list *list, void (*del)(void *, size_t))
+void	ft_lstdelone(t_list *list, void (*del)(void *, size_t))
 {
 	if (!list || !list->node || !del)
 		return ;

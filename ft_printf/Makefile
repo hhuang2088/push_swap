@@ -6,7 +6,7 @@
 #    By: hehuang <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/20 23:19:16 by hehuang           #+#    #+#              #
-#    Updated: 2017/06/02 12:49:43 by hehuang          ###   ########.fr        #
+#    Updated: 2017/12/13 17:26:00 by hehuang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,6 @@ libft: $(LIB)
 
 $(LIB):
 	make -C $(LIBDIR)
-	$(COMPILE) $(LIBLINK)
 
 ft_printf.o: $(SRCDIR)ft_printf.c $(HEADER_FILE)
 	$(COMPILE) $(SRCDIR)ft_printf.c
@@ -151,10 +150,6 @@ handle_wchar_and_wstr.o: $(SRCDIR)handle_wchar_and_wstr.c $(HEADER_FILE)
 $(NAME): $(OBJ_NAME)
 	$(AR) $(NAME) $(OBJ_NAME)
 	$(RLIB) $(NAME)
-
-test:
-	$(CC) $(OPTIONS) test.c -c
-	$(CC) $(NAME) $(OBJ_NAME) $(LIBLINK) test.o -o hello
 
 clean:
 	rm -f *.o

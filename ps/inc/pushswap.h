@@ -6,11 +6,11 @@
 /*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 14:41:52 by hehuang           #+#    #+#             */
-/*   Updated: 2017/12/13 16:11:25 by hehuang          ###   ########.fr       */
+/*   Updated: 2017/12/14 16:23:34 by hehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	PUSHSWAP_H
+#ifndef PUSHSWAP_H
 # define PUSHSWAP_H
 # include <stdarg.h>
 # include <stdio.h>

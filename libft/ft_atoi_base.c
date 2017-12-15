@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/12/14 17:15:52 by hehuang           #+#    #+#             */
+/*   Updated: 2017/12/14 17:18:40 by hehuang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-static int	skipwhitespace(const char *str)
+static int			skipwhitespace(const char *str)
 {
 	int		i;
 
@@ -13,8 +25,8 @@ static int	skipwhitespace(const char *str)
 
 static long long	update_num_value(char digit, int base, int num)
 {
-	char					*digits;
-	long long			i;
+	char		*digits;
+	long long	i;
 
 	i = 0;
 	digits = ft_strdup("0123456789abcdef");
@@ -26,12 +38,12 @@ static long long	update_num_value(char digit, int base, int num)
 	return (num);
 }
 
-long long		ft_atoi_base(const char *str, int base)
+long long			ft_atoi_base(const char *str, int base)
 {
-	int				i;
-	int				negative;
+	int			i;
+	int			negative;
 	long long	num;
-	char			digit;
+	char		digit;
 
 	num = 0;
 	negative = 0;
@@ -41,8 +53,8 @@ long long		ft_atoi_base(const char *str, int base)
 	if (str[i] == '-' || str[i] == '+')
 		i++;
 	while (str[i] && ((str[i] >= '0' && str[i] <= '9') ||
-																		(str[i] >= 'a' && str[i] <= 'f') ||
-																		(str[i] >= 'A' && str[i] <= 'F')))
+				(str[i] >= 'a' && str[i] <= 'f') ||
+				(str[i] >= 'A' && str[i] <= 'F')))
 	{
 		if (str[i] >= 'A' && str[i] <= 'F')
 			digit = ft_tolower(str[i]);
@@ -51,7 +63,6 @@ long long		ft_atoi_base(const char *str, int base)
 		num = update_num_value(digit, num, base);
 		i++;
 	}
-	if (negative)
-		num = -num;
+	num = (negative) ? -num : num;
 	return (num);
 }

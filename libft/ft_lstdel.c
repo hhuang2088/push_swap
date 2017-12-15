@@ -6,7 +6,7 @@
 /*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 23:28:31 by hehuang           #+#    #+#             */
-/*   Updated: 2016/10/05 00:36:42 by hehuang          ###   ########.fr       */
+/*   Updated: 2017/12/14 17:19:35 by hehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ft_nodedel(t_node **anode, void (*del)(void *, size_t))
 	*anode = NULL;
 }
 
-void 	ft_lstdel(t_list *list, void (*del)(void *, size_t))
+void	ft_lstdel(t_list *list, void (*del)(void *, size_t))
 {
 	if (!list || !del)
 		return ;

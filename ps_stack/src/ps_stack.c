@@ -6,13 +6,13 @@
 /*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:24:48 by hehuang           #+#    #+#             */
-/*   Updated: 2017/12/13 13:24:58 by hehuang          ###   ########.fr       */
+/*   Updated: 2017/12/14 16:28:34 by hehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_stack.h"
 
-void 	lst_swap(t_list *list)
+void	lst_swap(t_list *list)
 {
 	void			*tmp;
 
@@ -27,7 +27,7 @@ void 	lst_swap(t_list *list)
 	}
 }
 
-void		lst_push(t_list *dst_list, t_list *src_list)
+void	lst_push(t_list *dst_list, t_list *src_list)
 {
 	t_node	*top;
 
@@ -46,7 +46,7 @@ void		lst_push(t_list *dst_list, t_list *src_list)
 	}
 }
 
-void		lst_rotate(t_list *list)
+void	lst_rotate(t_list *list)
 {
 	t_node	*new_tail;
 
@@ -66,13 +66,13 @@ void		lst_rotate(t_list *list)
 	}
 }
 
-void 		lst_reverse_rotate(t_list *list)
+void	lst_reverse_rotate(t_list *list)
 {
 	if (list)
 	{
 		if (list->node->next)
 		{
-			while(list->node->next->next)
+			while (list->node->next->next)
 				list->node = list->node->next;
 			list->node->next->next = list->head;
 			list->head = list->node->next;
