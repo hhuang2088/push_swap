@@ -74,11 +74,18 @@ int		input_check(char *input)
 	i = 0;
 	if (input[i] == '-')
 		++i;
+	else
+	{
+		if (ft_strlen(input) > 10)
+			return (0);
+	}
 	while (input[i])
 	{
 		if (!ft_isdigit(input[i]))
 			return (0);
 		++i;
 	}
+	if (!is_int_input(input))
+		return (0);
 	return (1);
 }

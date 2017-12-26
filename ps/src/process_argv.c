@@ -21,6 +21,8 @@ static int		normalize_input(int ac, int i, char **av)
 	rank = 0;
 	while (j < ac)
 	{
+		if (ft_atoi(av[i]) == ft_atoi(av[j]) && i != j)
+			return (-1);
 		if (ft_atoi(av[i]) > ft_atoi(av[j]))
 			++rank;
 		++j;
@@ -44,27 +46,30 @@ int				input_check(char *input)
 	return (1);
 }
 
+static int		error_handle(t_set *ret)
+{
+	free_set(ret);
+	ft_printf("Error\n");
+	return (0);
+}
+
 static int		process_input(t_set *ret, int ac, char **av, int i)
 {
 	t_value		*value;
+	int				rank;
 
 	if (input_check(av[i]))
 	{
+		rank = normalize_input(ac, i, av);
+		if (rank == -1)
+			return (error_handle(ret));
 		value = value_new(normalize_input(ac, i, av), i - 1);
 		if (!(ret->list_a->node->next = ft_nodenew(value, sizeof(value))))
-		{
-			free_set(ret);
-			ft_printf("Error\n");
-			return (0);
-		}
+			return (error_handle(ret));
 		ret->list_a->node = ret->list_a->node->next;
 	}
 	else
-	{
-		free_set(ret);
-		ft_printf("Error\n");
-		return (0);
-	}
+		return (error_handle(ret));
 	free(value);
 	return (1);
 }

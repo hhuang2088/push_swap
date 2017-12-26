@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stddef.h>
 # include <wchar.h>
+# include <limits.h>
 # include <inttypes.h>
 # include "../../libft/libft.h"
 # include "../../ft_printf/inc/ft_printf.h"
@@ -33,5 +34,8 @@ int		get_space_seperation(t_list *list);
 char	*create_space(int space_seperation);
 int		input_check(char *input);
 void	process_commands(t_list *list_a, t_list *list_b, int space_seperation);
+int		command_check(char **line_split);
+int		is_int_input(char *input);
+int		space_check(char **line_split, char *line);
 
 #endif

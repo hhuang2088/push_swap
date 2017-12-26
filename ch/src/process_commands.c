@@ -30,7 +30,7 @@ static int			execute_input_command_helper(t_list *list_a, t_list *list_b,
 		return (execute_double_command(lst_reverse_rotate,
 					list_a, list_b, "rrr "));
 	}
-	ft_printf("\nUnknown Command: %s\n", command);
+	ft_printf("Error\n");
 	return (0);
 }
 
@@ -55,13 +55,22 @@ static int			process_commands_helper(t_list *list_a, t_list *list_b,
 																	int steps)
 {
 	int j;
+	int	command_ret;
 
 	j = 0;
+
 	while (line_split[j])
 	{
-		steps += execute_input_command(list_a, list_b, line_split[j]);
+		command_ret = execute_input_command(list_a, list_b, line_split[j]);
+		if (command_ret)
+			steps += command_ret;
+		else
+		{
+			free(line_split[j]);
+			free(line_split);
+			exit(0);
+		}
 		free(line_split[j]);
-		ft_printf("Steps taken %d", steps);
 		++j;
 	}
 	return (steps);
@@ -80,13 +89,19 @@ void				process_commands(t_list *list_a, t_list *list_b,
 	{
 		j = 0;
 		line_split = ft_strsplit(line, ' ');
-		ft_printf("Exec ");
-		if (ft_strncmp(line, "exit", 4) == 0)
+		if (!space_check(line_split, line))
 		{
-			ft_printf("Exitting program\n");
-			return ;
+			ft_printf("Error\n");
+			exit(0);
 		}
+		if (!command_check(line_split))
+		{
+			ft_printf("Error\n");
+			exit(0);
+		}
+		ft_printf("Exec ");
 		steps = process_commands_helper(list_a, list_b, line_split, steps);
+		ft_printf("Steps taken %d", steps);
 		ft_printf(":\n");
 		free(line_split);
 		if (checker(list_a, list_b, space_seperation, steps))

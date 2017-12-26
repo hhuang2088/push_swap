@@ -19,6 +19,8 @@ int		main(int ac, char **av)
 
 	if (!((set = process_argv(ac, av))))
 		return (0);
+	if (is_solved(set))
+		return (0);
 	steps = solve_with_explicit_instructions(set);
 	ft_printf("%d\n", steps);
 	free_set(set);
