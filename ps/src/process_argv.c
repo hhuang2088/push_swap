@@ -6,7 +6,7 @@
 /*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 16:00:26 by hehuang           #+#    #+#             */
-/*   Updated: 2017/12/13 16:02:07 by hehuang          ###   ########.fr       */
+/*   Updated: 2018/09/05 16:55:52 by hehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int		error_handle(t_set *ret)
 static int		process_input(t_set *ret, int ac, char **av, int i)
 {
 	t_value		*value;
-	int				rank;
+	int			rank;
 
 	if (input_check(av[i]))
 	{

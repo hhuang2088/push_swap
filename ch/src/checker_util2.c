@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_util2.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/09/05 16:53:25 by hehuang           #+#    #+#             */
+/*   Updated: 2018/09/05 16:53:28 by hehuang          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "checker.h"
 
-int		is_int_input(char *input)
+int			is_int_input(char *input)
 {
 	int		neg;
 	int		len;
@@ -30,7 +42,7 @@ static int	free_linesplit(char **line_split)
 	return (0);
 }
 
-int		command_check_helper(char **line_split, int i)
+int			command_check_helper(char **line_split, int i)
 {
 	if (!ft_strcmp(line_split[i], "sa"))
 		return (1);
@@ -57,7 +69,7 @@ int		command_check_helper(char **line_split, int i)
 	return (0);
 }
 
-int		command_check(char **line_split)
+int			command_check(char **line_split)
 {
 	int		i;
 	int		line_check;

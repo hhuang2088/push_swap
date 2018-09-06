@@ -36,7 +36,8 @@ int		get_space_seperation(t_list *list)
 	most_digits = 1;
 	while (list->node)
 	{
-		num_string = ft_itoa(*(int*)list->node->content);
+		if (!(num_string = ft_itoa(*(int*)list->node->content)))
+			return (-1);
 		digits = ft_strlen(num_string);
 		if (most_digits < digits)
 			most_digits = digits;

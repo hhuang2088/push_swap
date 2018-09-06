@@ -6,7 +6,7 @@
 #    By: hehuang <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/13 13:23:52 by hehuang           #+#    #+#              #
-#    Updated: 2017/12/13 13:23:55 by hehuang          ###   ########.fr        #
+#    Updated: 2017/12/27 16:58:29 by hehuang          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ $(PRINTF):
 	make -C $(PFDIR)
 
 $(PS_STACK):
-	make - C $(PS_STACK_DIR)
+	make -C $(PS_STACK_DIR)
 
 checker_util.o: $(CHDIR)checker_util.c $(CH_HEADER)checker.h
 	$(CC) $(CH_OPTIONS) -c $(CHDIR)checker_util.c

@@ -6,7 +6,7 @@
 /*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:23:30 by hehuang           #+#    #+#             */
-/*   Updated: 2017/12/13 14:36:08 by hehuang          ###   ########.fr       */
+/*   Updated: 2018/09/05 16:54:28 by hehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ static int			process_commands_helper(t_list *list_a, t_list *list_b,
 	int	command_ret;
 
 	j = 0;
-
 	while (line_split[j])
 	{
 		command_ret = execute_input_command(list_a, list_b, line_split[j]);
@@ -89,14 +88,9 @@ void				process_commands(t_list *list_a, t_list *list_b,
 	{
 		j = 0;
 		line_split = ft_strsplit(line, ' ');
-		if (!space_check(line_split, line))
+		if (!space_check(line_split, line) || !command_check(line_split))
 		{
-			ft_printf("Error\n");
-			exit(0);
-		}
-		if (!command_check(line_split))
-		{
-			ft_printf("Error\n");
+			fail_input_check(list_a, list_b);
 			exit(0);
 		}
 		ft_printf("Exec ");

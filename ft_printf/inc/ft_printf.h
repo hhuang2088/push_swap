@@ -6,7 +6,7 @@
 /*   By: hehuang <hehuang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 17:43:10 by hehuang           #+#    #+#             */
-/*   Updated: 2017/07/03 15:52:45 by raymondhuang     ###   ########.fr       */
+/*   Updated: 2017/12/26 13:28:56 by hehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stddef.h>
 # include <wchar.h>
 # include <inttypes.h>
-# include "../libft/libft.h"
+# include "../../libft/libft.h"
 
 typedef struct			s_tag
 {

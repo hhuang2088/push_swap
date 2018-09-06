@@ -37,5 +37,6 @@ void	process_commands(t_list *list_a, t_list *list_b, int space_seperation);
 int		command_check(char **line_split);
 int		is_int_input(char *input);
 int		space_check(char **line_split, char *line);
+t_list	*fail_input_check(t_list *list_a, t_list *list_b);
 
 #endif
