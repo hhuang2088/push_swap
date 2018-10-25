@@ -81,12 +81,10 @@ void				process_commands(t_list *list_a, t_list *list_b,
 	char			*line;
 	char			**line_split;
 	int				steps;
-	int				j;
 
 	steps = 0;
 	while (get_next_line(0, &line))
 	{
-		j = 0;
 		line_split = ft_strsplit(line, ' ');
 		if (!space_check(line_split, line) || !command_check(line_split))
 		{
@@ -98,6 +96,7 @@ void				process_commands(t_list *list_a, t_list *list_b,
 		ft_printf("Steps taken %d", steps);
 		ft_printf(":\n");
 		free(line_split);
+		free(line);
 		if (checker(list_a, list_b, space_seperation, steps))
 			return ;
 	}
