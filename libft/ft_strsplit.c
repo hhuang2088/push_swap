@@ -6,7 +6,7 @@
 /*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/28 18:43:27 by hehuang           #+#    #+#             */
-/*   Updated: 2016/10/20 23:56:59 by hehuang          ###   ########.fr       */
+/*   Updated: 2018/11/26 16:30:24 by hehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	get_word_len(char const *s, char c, int i)
 	return (len);
 }
 
-int	word_count(char const *s, char c)
+int			word_count(char const *s, char c)
 {
 	int		cnt_iter;
 	int		count;
