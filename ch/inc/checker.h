@@ -6,7 +6,7 @@
 /*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:23:43 by hehuang           #+#    #+#             */
-/*   Updated: 2017/12/13 14:37:57 by hehuang          ###   ########.fr       */
+/*   Updated: 2018/11/26 15:12:59 by hehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,8 @@ int		command_check(char **line_split);
 int		is_int_input(char *input);
 int		space_check(char **line_split, char *line);
 t_list	*fail_input_check(t_list *list_a, t_list *list_b);
+char	**ch_get_input_tokens(int ac, char **av, int new_ac);
+int		free_linesplit(char **line_split);
+int		get_new_ac(int ac, char **av);
 
 #endif

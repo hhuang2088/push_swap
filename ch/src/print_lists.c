@@ -60,4 +60,6 @@ void			print_lists(t_list *list_a, t_list *list_b,
 	free(space);
 	list_a->node = list_a->head;
 	list_b->node = list_b->head;
+	if (is_sorted(list_a))
+		ft_printf("ok\n");
 }

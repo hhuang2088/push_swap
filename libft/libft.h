@@ -134,4 +134,5 @@ void				list_free(t_list *list);
 void				node_free(t_node *node);
 int					get_list_size(t_list *list);
 t_list				*copy_list(t_list *src_list);
+int					word_count(char const *s, char c);
 #endif

@@ -6,7 +6,7 @@
 /*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:23:15 by hehuang           #+#    #+#             */
-/*   Updated: 2018/03/22 15:58:45 by hehuang          ###   ########.fr       */
+/*   Updated: 2018/11/26 15:18:32 by hehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ static int			duplicate_check(int ac, char **av)
 
 static t_list		*fill_lista(int ac, char **av)
 {
-	int			current;
-	int			i;
-	t_list		*list_a;
+	int				current;
+	int				i;
+	t_list			*list_a;
 
 	i = 1;
 	if (!duplicate_check(ac, av) || !(input_check(av[i])))
@@ -66,12 +66,18 @@ int					main(int ac, char **av)
 	int		space_seperation;
 	t_list	*list_a;
 	t_list	*list_b;
+	char	**new_av;
+	int		new_ac;
 
 	if (ac < 2 && av)
 		return (0);
 	list_b = ft_lstnew(NULL, 0);
-	if ((!(list_a = fill_lista(ac, av))))
+	new_ac = get_new_ac(ac, av);
+	if (!(new_av = ch_get_input_tokens(ac, av, new_ac)))
 		return (0);
+	if ((!(list_a = fill_lista(new_ac, new_av))))
+		return (0);
+	free_linesplit(new_av);
 	list_a->node = list_a->head;
 	space_seperation = get_space_seperation(list_a);
 	if (space_seperation < 0)
@@ -80,8 +86,6 @@ int					main(int ac, char **av)
 		return (0);
 	}
 	print_lists(list_a, list_b, space_seperation);
-	if (is_sorted(list_a))
-		ft_printf("ok\n");
 	process_commands(list_a, list_b, space_seperation);
 	return (0);
 }

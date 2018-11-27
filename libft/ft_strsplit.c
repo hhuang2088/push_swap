@@ -24,7 +24,7 @@ static int	get_word_len(char const *s, char c, int i)
 	return (len);
 }
 
-static int	word_count(char const *s, char c)
+int	word_count(char const *s, char c)
 {
 	int		cnt_iter;
 	int		count;

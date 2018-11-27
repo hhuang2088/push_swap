@@ -16,7 +16,8 @@ CHDIR = ./src/
 FLAGS = -g -Wall -Wextra -Werror
 CC = gcc
 CH_FILES = main.c checker.c checker_util.c process_commands.c \
-					 execution_commands.c print_lists.c checker_util2.c checker_util3.c
+					 execution_commands.c print_lists.c checker_util2.c checker_util3.c \
+					 ch_get_input_tokens.c
 LIBDIR = ../libft/
 LIBFT = $(LIBDIR)libft.a
 LIBLINK = -L$(LIBDIR) -lft
@@ -73,6 +74,9 @@ checker_util2.o: $(CHDIR)checker_util2.c $(CH_HEADER)checker.h
 
 checker_util3.o: $(CHDIR)checker_util3.c $(CH_HEADER)checker.h
 	$(CC) $(CH_OPTIONS) -c $(CHDIR)checker_util3.c
+
+ch_get_input_tokens.o: $(CHDIR)ch_get_input_tokens.c $(CH_HEADER)checker.h
+	$(CC) $(CH_OPTIONS) -c $(CHDIR)ch_get_input_tokens.c
 
 $(NAME): $(CHOBJ)
 	$(CC) $(LIBLINK) $(PFLINK) $(PS_STACK_LINK) $(CHOBJ) -o $(NAME)

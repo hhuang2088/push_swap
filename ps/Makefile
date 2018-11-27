@@ -7,7 +7,8 @@ PS_FILES = main.c ps_util.c solver.c set_util.c util.c \
 					value_functions.c solver_util.c apply_optimal_rotation.c \
 					populate_listb.c partition_util.c populate_listb_util.c \
 					optimized_sb.c repopulate_lista.c process_argv.c \
-					apply_rotation.c fill_partition_a_and_b.c
+					apply_rotation.c fill_partition_a_and_b.c \
+					ch_get_input_tokens.c
 LIBDIR = ../libft/
 LIBFT = $(LIBDIR)libft.a
 LIBLINK = -L$(LIBDIR) -lft
@@ -88,6 +89,9 @@ repopulate_lista.o: $(PSDIR)repopulate_lista.c $(PS_HEADER)pushswap.h
 
 optimized_sb.o: $(PSDIR)optimized_sb.c $(PS_HEADER)pushswap.h
 	$(CC) $(PS_OPTIONS) -c $(PSDIR)optimized_sb.c
+
+ch_get_input_tokens.o: $(PSDIR)ch_get_input_tokens.c $(PS_HEADER)pushswap.h
+	$(CC) $(PS_OPTIONS) -c $(PSDIR)ch_get_input_tokens.c
 
 $(NAME): $(PSOBJ)
 	$(CC) $(LIBLINK) $(PFLINK) $(PS_STACK_LINK) $(PSOBJ) -o $(NAME)

@@ -69,7 +69,6 @@ static int			process_commands_helper(t_list *list_a, t_list *list_b,
 			free(line_split);
 			exit(0);
 		}
-		free(line_split[j]);
 		++j;
 	}
 	return (steps);

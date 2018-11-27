@@ -6,7 +6,7 @@
 /*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/05 16:53:25 by hehuang           #+#    #+#             */
-/*   Updated: 2018/09/05 16:53:28 by hehuang          ###   ########.fr       */
+/*   Updated: 2018/11/26 15:19:10 by hehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			is_int_input(char *input)
 	return (0);
 }
 
-static int	free_linesplit(char **line_split)
+int			free_linesplit(char **line_split)
 {
 	int	i;
 
