@@ -46,11 +46,14 @@ int				input_check(char *input)
 	return (1);
 }
 
-static int		error_handle(t_set *ret)
+static t_set	*error_handle(t_set *ret, int no_input_number)
 {
 	free_set(ret);
-	ft_printf("Error\n");
-	return (0);
+	if (no_input_number)
+		ft_printf("No Input Number\n");
+	else
+		ft_printf("Error\n");
+	return (NULL);
 }
 
 static int		process_input(t_set *ret, int ac, char **av, int i)
@@ -62,14 +65,14 @@ static int		process_input(t_set *ret, int ac, char **av, int i)
 	{
 		rank = normalize_input(ac, i, av);
 		if (rank == -1)
-			return (error_handle(ret));
+			return (0);
 		value = value_new(normalize_input(ac, i, av), i - 1);
 		if (!(ret->list_a->node->next = ft_nodenew(value, sizeof(value))))
-			return (error_handle(ret));
+			return (0);
 		ret->list_a->node = ret->list_a->node->next;
 	}
 	else
-		return (error_handle(ret));
+		return (0);
 	free(value);
 	return (1);
 }
@@ -81,20 +84,21 @@ t_set			*process_argv(int ac, char **av)
 	t_value *value;
 
 	i = 1;
-	ret = (t_set*)malloc(sizeof(t_set));
-	ret->list_b = ft_lstnew(NULL, 0);
-	if (ac < 2 && av)
-	{
-		ft_printf("No Input Number\n");
+	if (!(ret = (t_set*)malloc(sizeof(t_set))))
 		return (NULL);
-	}
-	value = value_new(normalize_input(ac, i++, av), 0);
-	ret->list_a = ft_lstnew(value, sizeof(value));
+	if (!(ret->list_b = ft_lstnew(NULL, 0)))
+		return (error_handle(ret, 0));
+	if (ac < 2 && av)
+		return (error_handle(ret, 1));
+	if (!(value = value_new(normalize_input(ac, i++, av), 0)))
+		return (error_handle(ret, 0));
+	if (!(ret->list_a = ft_lstnew(value, sizeof(value))))
+		return (error_handle(ret, 0));
 	free(value);
 	while (i < ac)
 	{
 		if (!process_input(ret, ac, av, i++))
-			return (NULL);
+			return (error_handle(ret, 0));
 	}
 	ret->list_a->node = ret->list_a->head;
 	return (ret);

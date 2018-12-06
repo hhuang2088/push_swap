@@ -14,8 +14,10 @@
 
 void	free_set(t_set *set)
 {
-	list_free(set->list_a);
-	list_free(set->list_b);
+	if (set->list_a)
+		list_free(set->list_a);
+	if (set->list_b)
+		list_free(set->list_b);
 	free(set);
 }
 

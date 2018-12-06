@@ -85,5 +85,6 @@ int					simulate_steps_1(t_set *set, int sb, int steps, int moves);
 void				apply_last_ra(t_set *set, t_part *part, int test);
 int					get_new_ac(int ac, char **av);
 char				**ch_get_input_tokens(int ac, char **av, int new_ac);
+int					free_linesplit(char **line_split);
 
 #endif
