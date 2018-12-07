@@ -6,7 +6,7 @@
 /*   By: hehuang <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/13 13:22:50 by hehuang           #+#    #+#             */
-/*   Updated: 2017/12/13 13:46:31 by hehuang          ###   ########.fr       */
+/*   Updated: 2018/12/07 00:30:27 by hehuang          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,17 @@
 
 int		is_sorted(t_list *list)
 {
-	while (list->node->next)
+	if (list->node)
 	{
-		if (*((int*)list->node->content) > *((int*)list->node->next->content))
+		while (list->node->next)
 		{
-			list->node = list->head;
-			return (0);
+			if (*((int*)list->node->content) > *((int*)list->node->next->content))
+			{
+				list->node = list->head;
+				return (0);
+			}
+			list->node = list->node->next;
 		}
-		list->node = list->node->next;
 	}
 	list->node = list->head;
 	return (1);
